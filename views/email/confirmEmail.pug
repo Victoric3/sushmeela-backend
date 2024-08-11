@@ -1,0 +1,34 @@
+extends baseEmail
+
+block content
+  // Logo Section
+  div(style="text-align: center; margin-bottom: 30px;")
+    img(src="https://sushmeela.netlify.app/static/media/logo.cebb6a79e1508eaa4eac.png", alt="Sushmeela Logo", style="max-width: 150px;")
+
+  // Main Content Section
+  p(style="font-family: sans-serif; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 20px;")
+    | Thank you for registering on #{process.env.SITE_NAME}!
+    br
+    | To complete your registration, please click the button below:
+
+  table.btn.btn-primary(role="presentation", border="0", cellpadding="0", cellspacing="0", style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; box-sizing: border-box; width: 100%; margin-top: 20px;", width="100%")
+    tbody
+      tr
+        td(align="center", style="font-family: sans-serif; font-size: 16px; vertical-align: top; padding-bottom: 20px;", valign="top")
+          table(role="presentation", border="0", cellpadding="0", cellspacing="0", style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: auto;")
+            tbody
+              tr
+                td(style="font-family: sans-serif; font-size: 16px; vertical-align: top; border-radius: 5px; text-align: center; background-color: #800080;", valign="top", align="center", bgcolor="#800080")
+                  a(href=`${process.env.URL}/confirmEmailAndSignUp/${url}`, target="_blank", style="border: solid 1px #800080; border-radius: 5px; box-sizing: border-box; cursor: pointer; display: inline-block; font-size: 16px; font-weight: bold; margin: 0; padding: 12px 25px; text-decoration: none; text-transform: capitalize; background-color: #800080; border-color: #800080; color: #ffffff;")
+                    | Confirm Email
+
+  p(style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-top: 20px;")
+    | If you did not register on #{process.env.SITE_NAME}, please ignore this email.
+
+  p(style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-top: 10px;")
+    | For security reasons, this confirmation link will expire in 20 minutes.
+
+  p(style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-top: 10px;")
+    | Thank you for choosing #{process.env.SITE_NAME}! If you encounter any issues or need further assistance, please don't hesitate to contact us at
+    a(href=`mailto:${process.env.EMAIL_ACCOUNT}`, style="font-family: sans-serif; font-size: 14px; font-weight: bold; color: #800080; text-decoration: none; margin-left: 5px;")
+      | #{process.env.EMAIL_ACCOUNT}

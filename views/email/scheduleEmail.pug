@@ -1,0 +1,37 @@
+extends baseEmail
+
+block content
+  .email-container
+    .email-header
+      img(src="https://sushmeela.netlify.app/static/media/logo.cebb6a79e1508eaa4eac.png" alt="Sushmeela Logo" style="display: block; margin: 0 auto 10px; max-width: 150px; border-radius: 50%")
+      h1(style="font-family: sans-serif; font-size: 24px; color: #800080; text-align: center;") Scheduled Call Notification
+    .email-content
+      p(style="font-family: sans-serif; font-size: 14px; color: #333; margin-bottom: 15px;")
+        | Dear #{firstName},
+      p(style="font-family: sans-serif; font-size: 14px; color: #333; margin-bottom: 15px;")
+        | You have a new scheduled call request.
+      p(style="font-family: sans-serif; font-size: 14px; color: #333; margin-bottom: 15px;")
+        | Here are the details:
+      p(style="font-family: sans-serif; font-size: 14px; color: #333; margin-bottom: 15px;")
+        strong Name:
+        |  #{url.name}
+      p(style="font-family: sans-serif; font-size: 14px; color: #333; margin-bottom: 15px;")
+        strong Email:
+        |  #{url.email}
+      p(style="font-family: sans-serif; font-size: 14px; color: #333; margin-bottom: 15px;")
+        strong Message:
+        |  #{url.message}
+      p(style="font-family: sans-serif; font-size: 14px; color: #333; margin-bottom: 15px;")
+        strong Date:
+        |  #{url.date}
+      p(style="font-family: sans-serif; font-size: 14px; color: #333; margin-bottom: 15px;")
+        strong Budget:
+        |  #{url.budget}
+      p(style="font-family: sans-serif; font-size: 14px; color: #333; margin-bottom: 15px;")
+        strong Service:
+        |  #{url.service}
+      p(style="font-family: sans-serif; font-size: 14px; color: #333; margin-bottom: 15px;")
+        | Please log in to the admin dashboard for more details and to manage the call schedule.
+    .email-footer
+      p(style="font-family: sans-serif; font-size: 12px; color: #777; text-align: center; margin-top: 20px;")
+        | &copy; #{new Date().getFullYear()} #{process.env.SITE_NAME}. All rights reserved.

@@ -1,0 +1,54 @@
+extends baseEmail
+
+block content
+  p(style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;")
+    | Dear #{firstName},
+  p(style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;")
+    | Welcome to #{process.env.SITE_NAME}! We're thrilled to have you on board as an admin for Sushmeela's portfolio website.
+
+  table.btn.btn-primary(role="presentation", border="0", cellpadding="0", cellspacing="0", style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; box-sizing: border-box; width: 100%;", width="100%")
+    tbody
+      tr
+        td(align="left", style="font-family: sans-serif; font-size: 14px; vertical-align: top; padding-bottom: 15px;", valign="top")
+          table(role="presentation", border="0", cellpadding="0", cellspacing="0", style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: auto;")
+            tbody
+              tr
+                td(style="font-family: sans-serif; font-size: 14px; vertical-align: top; border-radius: 5px; text-align: center; background-color: #ff3811;", valign="top", align="center", bgcolor="#ff3811")
+                  a(href=`${process.env.FRONTEND_BASEURL}/admin-dashboard`, target="_blank", style="border: solid 1px #ff3811; border-radius: 5px; box-sizing: border-box; cursor: pointer; display: inline-block; font-size: 14px; font-weight: bold; margin: 0; padding: 12px 25px; text-decoration: none; text-transform: capitalize; background-color: #ff3811; border-color: #ff3811; color: #ffffff;")
+                    | Go to Admin Dashboard
+
+  p(style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;")
+    | At #{process.env.SITE_NAME}, we're committed to providing a seamless and productive experience for our admins. Your role is crucial in maintaining the quality and professionalism of Sushmeela's portfolio.
+
+  p(style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;")
+    | As an admin, you have access to tools and features that will help you manage content, monitor site performance, and support Sushmeela in showcasing her skills and achievements effectively.
+
+  p(style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;")
+    | Here are some key features you can utilize:
+
+  ul(style="list-style-type: disc; margin: 0 0 0 20px;")
+    li(style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 10px;")
+      | **Content Management:**
+      | Easily update and manage portfolio content to keep it fresh and engaging.
+    li(style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 10px;")
+      | **Performance Analytics:**
+      | Monitor site traffic and engagement metrics to optimize user experience.
+    li(style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 10px;")
+      | **User Support:**
+      | Provide assistance to users and address their queries efficiently.
+
+  p(style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;")
+    | To get started, simply
+    a(href=`${process.env.FRONTEND_BASEURL}/signIn`, style="text-decoration: none; color: #ff3811;")
+      | login
+    | to your #{process.env.SITE_NAME} admin account and explore the dashboard.
+
+  p(style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;")
+    | Thank you for joining our team. We're here to support you every step of the way. If you have any questions or need assistance, please don't hesitate to contact us at
+    a(href=`mailto:${process.env.EMAIL_ACCOUNT}`, style="text-decoration: none; color: blue")
+      | #{process.env.EMAIL_ACCOUNT}.
+
+  p(style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;")
+    | Best regards,
+  p(style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0;")
+    | The #{process.env.SITE_NAME} Team
