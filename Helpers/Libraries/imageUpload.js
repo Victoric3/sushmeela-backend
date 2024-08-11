@@ -1,20 +1,18 @@
 const CustomError = require("../error/CustomError");
 const multer = require("multer");
 const path = require("path");
-const { google } = require('googleapis');
-const fs = require('fs');
-const credentials = require('./kingsheart-cbt.json');
-
+const { google } = require("googleapis");
+const fs = require("fs");
+const credentials = require("./kingsheart-cbt.json");
 
 const auth = new google.auth.GoogleAuth({
-  keyFile: path.resolve(__dirname, './kingsheart-cbt.json'),
-  scopes: 'https://www.googleapis.com/auth/drive.file',
+  keyFile: path.resolve(__dirname, "./kingsheart-cbt.json"),
+  scopes: "https://www.googleapis.com/auth/drive.file",
 });
 
-const drive = google.drive({ version: 'v3', auth });
+const drive = google.drive({ version: "v3", auth });
 
-const storage = multer.memoryStorage()
-
+const storage = multer.memoryStorage();
 
 // .diskStorage({
 //   destination: function(req, file, cb) {
@@ -38,7 +36,12 @@ const storage = multer.memoryStorage()
 //   },
 // });
 const fileFilter = (req, file, cb) => {
-  const allowedMimeTypes = ["image/jpeg", "image/jpg", "image/png", "image/gif"];
+  const allowedMimeTypes = [
+    "image/jpeg",
+    "image/jpg",
+    "image/png",
+    "image/gif",
+  ];
 
   if (!allowedMimeTypes.includes(file.mimetype)) {
     return cb(new CustomError("Please provide a valid image file", 400), null);
@@ -47,8 +50,7 @@ const fileFilter = (req, file, cb) => {
   cb(null, true);
 };
 
-const imageUpload = multer({ storage, fileFilter }).single('image');
-
+const imageUpload = multer({ storage, fileFilter }).single("image");
 
 const uploadToDrive = async (file, mimeType, folderId) => {
   const media = {
@@ -65,7 +67,7 @@ const uploadToDrive = async (file, mimeType, folderId) => {
   });
 
   const fileLink = `https://drive.google.com/uc?export=view&id=${driveResponse.data.id}`;
-  return fileLink
+  return fileLink;
 };
 
 module.exports = { imageUpload, uploadToDrive };
